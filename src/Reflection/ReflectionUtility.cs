@@ -104,7 +104,11 @@ public class ReflectionUtility
                 try
                 {
                     // load and resolve the assembly's types.
+#if INTEROP
+                    Assembly asm = Assembly.LoadFile(dllPath);
+#else
                     Assembly asm = Assembly.LoadFrom(dllPath);
+#endif
                     asm.TryGetTypes();
                 }
                 catch { }
@@ -149,7 +153,7 @@ public class ReflectionUtility
         }
     }
 
-    #endregion
+#endregion
 
 
     #region Main Utility methods
