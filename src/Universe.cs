@@ -32,7 +32,7 @@ namespace UniverseLib
         }
 
         public const string NAME = "UniverseLib";
-        public const string VERSION = "1.5.9";
+        public const string VERSION = "1.5.10";
         public const string AUTHOR = "Sinai, yukieiji";
         public const string GUID = "com.sinai.universelib";
 
@@ -83,7 +83,9 @@ namespace UniverseLib
 
             // Only use the provided startup delay if its higher than the current value
             if (startupDelay > Universe.startupDelay)
+            {
                 Universe.startupDelay = startupDelay;
+            }
 
             ConfigManager.LoadConfig(config);
 
