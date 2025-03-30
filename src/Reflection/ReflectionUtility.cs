@@ -75,11 +75,16 @@ public class ReflectionUtility
     static void SetupTypeCache()
     {
         // For mono games, force load all 'Managed/' assemblies on startup.
-        if (Universe.Context == RuntimeContext.Mono)
+        if (!ConfigManager.Disable_Setup_Force_ReLoad_ManagedAssemblies &&
+            Universe.Context == RuntimeContext.Mono)
+        {
             ForceLoadManagedAssemblies();
+        }
 
         foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
+        {
             CacheTypes(asm);
+        }
 
         AppDomain.CurrentDomain.AssemblyLoad += AssemblyLoaded;
     }
