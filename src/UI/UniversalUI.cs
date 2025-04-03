@@ -205,9 +205,9 @@ public static class UniversalUI
                 return;
             }
         }
-        catch
+        catch (Exception e)
         {
-            Universe.LogWarning($"Exception parsing Unity version, falling back to old AssetBundle load method...");
+            Universe.LogWarning($"Exception parsing Unity version, falling back to old AssetBundle load method... {e}");
             ForceLoadBundle();
         }
 
