@@ -654,11 +654,7 @@ namespace UniverseLib
             try
             {
                 //Universe.Log($"Loading assembly '{Path.GetFileName(fullPath)}'");
-#if INTEROP
-                Assembly asm = Assembly.LoadFile(fullPath);
-#else
-                Assembly asm = Assembly.LoadFrom(fullPath);
-#endif
+                Assembly.LoadFrom(fullPath);
                 return true;
             }
             catch
