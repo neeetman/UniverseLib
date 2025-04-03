@@ -182,14 +182,22 @@ public static class UniversalUI
         try
         {
             // Get the Major and Minor of the Unity version
-            var version = new Version(Application.unityVersion);
-            int major = version.Major;
-            int minor = version.Minor;
-            int build = version.Build; // get first digit of patch, thats all we need.
+
+            string version = Application.unityVersion;
+            string[] split = version.Split('.');
+
+            if (!(
+                    int.TryParse(split[0], out int major) &&
+                    int.TryParse(split[1], out int minor) &&
+                    int.TryParse(split[2][0].ToString(), out int build)
+                ))
+            {
+                throw new ArgumentException($"Can't parse Unity v:{version}");
+            }
 
             // Use appropriate AssetBundle for Unity version
 
-            var bundle = version switch
+            var bundle = new Version(major, minor, build) switch
             {
                 { Major: > 5 } => "modern", // 2017 or newer
                 { Major: 5, Minor: >= 6  } => "legacy.5.6", // 5.6.X
