@@ -133,5 +133,26 @@ namespace UniverseLib.Utility
 
             return onEndEdit.GetValue(_this, null).TryCast<UnityEvent<string>>();
         }
+
+        public static void SetAsLastSiblingManual(this Transform t)
+        {
+            if (t == null) throw new ArgumentNullException(nameof(t));
+
+            var parent = t.parent;
+            if (parent == null) return;
+
+            t.SetParent(null, true);
+            t.SetParent(parent, true);
+        }
+
+
+        public static Transform GetRootManual(this Transform t)
+        {
+            if (t == null) throw new ArgumentNullException(nameof(t));
+
+            while (t.parent != null)
+                t = t.parent;
+            return t;
+        }
     }
 }
