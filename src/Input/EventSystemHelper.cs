@@ -287,7 +287,7 @@ namespace UniverseLib.Input
             if (ConfigManager.Allow_UI_Selection_Outside_UIBase || !UniversalUI.AnyUIShowing || !UniversalUI.CanvasRoot)
                 return true;
 
-            return __0 && __0.transform.root.gameObject.GetInstanceID() == UniversalUI.CanvasRoot.GetInstanceID();
+            return __0 && __0.transform.GetRootManual().gameObject.GetInstanceID() == UniversalUI.CanvasRoot.GetInstanceID();
         }
 
         // Force EventSystem.current to be UniverseLib's when menu is open

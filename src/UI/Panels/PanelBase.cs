@@ -64,7 +64,7 @@ namespace UniverseLib.UI.Panels
                 this.Dragger.WasDragging = false;
             else
             {
-                this.UIRoot.transform.SetAsLastSibling();
+                this.UIRoot.transform.SetAsLastSiblingManual();
                 this.Owner.Panels.InvokeOnPanelsReordered();
             }
         }

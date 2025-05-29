@@ -523,7 +523,7 @@ namespace UniverseLib.UI.Widgets.ScrollView
                 T cell = CellPool[topPoolIndex];
 
                 //Move top cell to bottom
-                cell.Rect.SetAsLastSibling();
+                cell.Rect.SetAsLastSiblingManual();
                 float prevHeight = cell.Rect.rect.height;
 
                 // update content position
@@ -650,7 +650,7 @@ namespace UniverseLib.UI.Widgets.ScrollView
                 int rotate = desiredBottomIndex - bottomDataIndex;
                 for (int i = 0; i < rotate; i++)
                 {
-                    CellPool[topPoolIndex].Rect.SetAsLastSibling();
+                    CellPool[topPoolIndex].Rect.SetAsLastSiblingManual();
 
                     //set new indices
                     bottomPoolIndex = topPoolIndex;

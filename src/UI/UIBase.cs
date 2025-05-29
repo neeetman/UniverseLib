@@ -84,7 +84,7 @@ namespace UniverseLib.UI
         /// </summary>
         public void SetOnTop()
         {
-            RootObject.transform.SetAsLastSibling();
+            RootObject.transform.SetAsLastSiblingManual();
 
             foreach (UIBase ui in UniversalUI.uiBases)
             {

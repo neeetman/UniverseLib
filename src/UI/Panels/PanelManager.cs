@@ -208,7 +208,7 @@ public class PanelManager
                 if (transform.GetSiblingIndex() != count - 1)
                 {
                     // Set the clicked panel to be on top
-                    transform.SetAsLastSibling();
+                    transform.SetAsLastSiblingManual();
 
                     InvokeOnPanelsReordered();
                 }
